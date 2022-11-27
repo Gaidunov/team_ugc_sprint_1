@@ -11,7 +11,7 @@ async def test_api_kafka():
     '''симулируем просмотр фильмов множеством юзеров'''
 
     async with aiohttp.ClientSession() as session:
-        for _ in range(10):
+        for _ in range(1000):
             request_body = MovieTimeStamp(
                     movie_id=random.randint(1, 1000),
                     user_id=random.randint(1, 1000),
