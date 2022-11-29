@@ -1,12 +1,13 @@
-запустить апи для отправки timestamps
+1. запустить апи для отправки timestamps
 
 ```uvicorn src.api.api:app```
 
-отправить тестовые данные 
+2. начать принимать сообщения из кафки и загружать в кликхаус
 
-```python -m src.api.test_views```
+```python -m src.kafka_to_house_etl```
 
-прочитать тестовые данные 
+3. отправить тестовые данные 
 
-```python -m src.kafka.kafka_consumer```
+```python -m src.api.fake_views```
+
 
