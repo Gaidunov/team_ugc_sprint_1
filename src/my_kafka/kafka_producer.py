@@ -15,5 +15,4 @@ class Kafka:
             key=key,
         )
 
-
 kafka = Kafka()
