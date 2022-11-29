@@ -6,7 +6,7 @@ import aiohttp
 
 from src.api.models import MovieTimeStamp
 
-with open('movies_with_time.json', 'r', encoding='utf-8') as f:
+with open('src/api/movies_with_time.json', 'r', encoding='utf-8') as f:
     movies = json.load(f)
 
 users = [e for e in range(1000)]
@@ -16,7 +16,7 @@ async def test_api_kafka():
     '''симулируем просмотр фильмов множеством юзеров'''
     
     async with aiohttp.ClientSession() as session:
-        for _ in range(1000):
+        for _ in range(100): # загружаем 100 меток 
             movie_id, _, timestamp = random.choice(movies)
             user_id = random.choice(users)
             request_body = MovieTimeStamp(user_id=user_id,
