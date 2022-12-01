@@ -1,3 +1,6 @@
+0. Поднять докер
+``` Make go ```
+
 1. запустить апи для отправки timestamps
 
 ```uvicorn src.api.api:app```
