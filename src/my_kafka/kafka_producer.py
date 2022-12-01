@@ -3,16 +3,17 @@ from typing import Any
 from kafka import KafkaProducer
 
 
-class Kafka:
-    # TODO: порты в env
-    def __init__(self) -> None:
-        self.producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
+class MyKafka(KafkaProducer):
+
+    def __init__(self, **configs):
+        super().__init__(**configs)
 
     def send(self, value: Any, key: Any) -> None:
-        self.producer.send(
-            topic='views',
+        print('отправляем ', value)
+        super().send(
+            topic='user_views',
             value=value,
             key=key,
         )
 
-kafka = Kafka()
+kafka = MyKafka(bootstrap_servers=['localhost:9092'])
