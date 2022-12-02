@@ -1,3 +1,4 @@
 kafka_python==2.0.2
 fastapi==0.87.0
 clickhouse-driver==0.2.5
+aiohttp==3.8.3
