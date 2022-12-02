@@ -1,5 +1,5 @@
 
-go: kafka-up click-up 
+go: click-up kafka-up
 
 click-up: 
 	docker-compose -f clickhouse.yml up -d
