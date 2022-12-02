@@ -1,7 +1,7 @@
 
-go: click-up kafka-up
+go: kafka-up click-up 
 
-click-up:
+click-up: 
 	docker-compose -f clickhouse.yml up -d
 
 kafka-up:

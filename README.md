@@ -7,10 +7,10 @@
 
 2. начать принимать сообщения из кафки и загружать в кликхаус
 
-```python -m src.kafka_to_house_etl```
+```python3 -m src.kafka_to_house_etl```
 
 3. отправить тестовые данные 
 
-```python -m src.api.fake_views```
+```python3 -m src.api.fake_views```
 
 
