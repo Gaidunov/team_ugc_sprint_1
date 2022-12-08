@@ -2,6 +2,11 @@ from typing import Any
 
 from kafka import KafkaProducer
 
+from src.config import config
+from src.utils.logger import get_struct_logger
+
+logger = get_struct_logger(__file__, log_file='src/logs/etl.log')
+
 
 class MyKafka(KafkaProducer):
 
@@ -9,9 +14,10 @@ class MyKafka(KafkaProducer):
         super().__init__(**configs)
 
     def send(self, value: Any, key: Any) -> None:
-        print('отправляем ', value)
+        
+        logger.info('kafka отправляет {value}')
         super().send(
-            topic='user_views',
+            topic=config.kafka_topic,
             value=value,
             key=key,
         )
