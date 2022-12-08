@@ -1,11 +1,12 @@
 from kafka import KafkaConsumer
+from src.config import config
 
 class Consumer:
 
     def fetch(self):
         consumer = KafkaConsumer(
-            'user_views', 
-            bootstrap_servers=['localhost:9092'],
+            config.kafka_topic, 
+            bootstrap_servers=config.kafka_bootstrap_servers,
             auto_offset_reset='earliest',
             group_id='echo-messages-to-stdout',
         )
@@ -14,5 +15,3 @@ class Consumer:
             yield message.key, message.value
 
 kafka_consumer = Consumer()
-for k,v in kafka_consumer.fetch():
-    print(k,v)
