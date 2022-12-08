@@ -1,18 +1,21 @@
-1. docker-compose up -d
-   
+1. Поднять контейнеры
+
+> ```docker-compose up -d```
+
 2. запустить апи для отправки timestamps
 
-```make server```
+>```make server```
 
 3. начать принимать сообщения из кафки и загружать в кликхаус
 
-```make etl```
+>```make etl```
 
 4. отправить тестовые данные 
 
-```make views```
+>```make views```
 
 5. проверить, что данные появились в кликхаус
-```make test_click```
+
+>```make test_click```
 
 
