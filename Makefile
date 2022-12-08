@@ -1,8 +1,12 @@
 
-go: click-up kafka-up
+server:
+	uvicorn src.api.api:app --reload
 
-click-up: 
-	docker-compose -f clickhouse.yml up -d
+views:
+	python -m src.api.fake_views
 
-kafka-up:
-	docker-compose -f kafka.yml up -d
+etl:
+	python -m src.kafka_to_house_etl
+
+test_click:
+	python -m src.click_house.test_click

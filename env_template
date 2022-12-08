@@ -1,1 +1,3 @@
-тут наверно Семен прокинет порты для кафки
+kafka_bootstrap_servers=['localhost:9092']
+kafka_topic = 'user_views'
+       
