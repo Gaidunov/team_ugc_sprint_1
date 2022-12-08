@@ -1,6 +1,14 @@
 version: '3.5'
 
 services:
+  nginx:
+    image: nginx:1.23.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src/core:/etc/nginx/conf.d:ro
+    ports:
+      - "80:80"
+      - "8000:80"
 
   zookeeper:
     image: confluentinc/cp-zookeeper:6.0.1
