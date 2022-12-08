@@ -3,12 +3,14 @@ from http import HTTPStatus
 
 from src.api.models import MovieTimeStamp
 from src.my_kafka.kafka_producer import kafka
+from src.auth import token_verification
 
  
 app = FastAPI(docs_url='/docs')
 
 
 @app.post("/send_stamp")
+@token_verification
 async def send_time_stamp(data:MovieTimeStamp):
     """отправляем в кафку инфу о прогрессе просмотра фильма юзером"""
     # user_id, movie_id, ts, movie_duration
