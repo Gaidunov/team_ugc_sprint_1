@@ -8,6 +8,7 @@ load_dotenv()
 class Settings(BaseSettings):
     kafka_bootstrap_servers:list[str]
     kafka_topic:str
+    auth_servise:str
 
     class Config:
         @classmethod    

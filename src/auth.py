@@ -1,7 +1,8 @@
 from fastapi import Cookie
 import requests
+from src.config import config
 
-URL_SERVISE_AUTH = 'http://192.168.14.88:4242//api/v1/users/verify_token'
+URL_SERVISE_AUTH = f'http://{config.auth_servise}//api/v1/users/verify_token'
 
 def token_verification(func):
     def wrapper(access_token_cookie = Cookie(), refresh_token_cookie = Cookie()):
