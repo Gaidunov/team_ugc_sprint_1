@@ -34,6 +34,8 @@ def one_thousand_data():
 
 start_time = time.time()
 print(start_time)
+
+
 def load(flag_db: int):
     print('старт загрузки')
     for _ in range(10000):
@@ -56,15 +58,12 @@ def load(flag_db: int):
     print("--- %s seconds ---" % (time.time() - start_time))
 
 
-
-
 if __name__ == '__main__':
     print('базу тестируем \n 1) clickhouse \n 2) vertica')
     while True:
         flag_db = int(input('введите номер: '))
         if flag_db == 1 or flag_db == 2:
             break
-    print('cnfhn')
     t = Process(target=load, args=(flag_db,))
     t.start()
 

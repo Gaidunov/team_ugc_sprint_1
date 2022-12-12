@@ -18,7 +18,7 @@ async def test_api_kafka():
     
     users = [e for e in range(100)]
     async with aiohttp.ClientSession() as session:
-        for _ in range(100): # загружаем тестовых 100 меток 
+        for _ in range(100):  # загружаем тестовых 100 меток
             movie_id, _, movie_duration = random.choice(movies)
             timestamp = random.randint(0, movie_duration)
             user_id = random.choice(users)
@@ -28,7 +28,6 @@ async def test_api_kafka():
                                           movie_duration=movie_duration)
             async with session.post('http://127.0.0.1:8000/send_stamp', json=request_body.dict()) as resp:
                 if resp.status == 200:
-                    logger.info('timestamp отправлен')
+                    logger.info('timestamp sent')
                 
 asyncio.run(test_api_kafka())
-

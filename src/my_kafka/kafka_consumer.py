@@ -1,8 +1,8 @@
 from kafka import KafkaConsumer
 from src.config import config
 
-class Consumer:
 
+class Consumer:
     def fetch(self):
         consumer = KafkaConsumer(
             config.kafka_topic, 
@@ -13,5 +13,6 @@ class Consumer:
 
         for message in consumer:
             yield message.key, message.value
+
 
 kafka_consumer = Consumer()

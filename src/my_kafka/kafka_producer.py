@@ -15,11 +15,12 @@ class MyKafka(KafkaProducer):
 
     def send(self, value: Any, key: Any) -> None:
         
-        logger.info('kafka отправляет {value}')
+        logger.info('Kafka sends {value}')
         super().send(
             topic=config.kafka_topic,
             value=value,
             key=key,
         )
 
-kafka = MyKafka(bootstrap_servers=['localhost:9092'])
+
+kafka = MyKafka(bootstrap_servers=[f'{config.kafka_host}:{config.kafka_port}'])

@@ -36,8 +36,10 @@ class CustomPrintLogger:
 
 def get_struct_logger(name: str, log_file):
     structlog.configure(
-        processors=[structlog.stdlib.add_log_level,
-                    CustomPrintLogger(log_file)],
+        processors=[
+            structlog.stdlib.add_log_level,
+            CustomPrintLogger(log_file)
+        ],
         wrapper_class=structlog.make_filtering_bound_logger(logging.INFO),
     )
     log = structlog.get_logger()

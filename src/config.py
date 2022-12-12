@@ -5,10 +5,15 @@ from pydantic import BaseSettings
 
 load_dotenv()
 
+
 class Settings(BaseSettings):
-    kafka_bootstrap_servers:list[str]
-    kafka_topic:str
-    auth_servise:str
+    kafka_bootstrap_servers: list[str]
+    kafka_topic: str
+    kafka_host: str
+    kafka_port: int
+
+    clickhouse_host: str
+    auth_servise: str
 
     class Config:
         @classmethod    
@@ -18,5 +23,6 @@ class Settings(BaseSettings):
     
         env_file = '.env'
         env_file_encoding = 'utf-8'
+
 
 config = Settings()

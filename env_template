@@ -1,4 +1,7 @@
 kafka_bootstrap_servers=['localhost:9092']
 kafka_topic = 'user_views'
 auth_servise = '192.168.14.88:4242'
+kafka_host=localhost
+kafka_port=
+clickhouse_host=localhost
        

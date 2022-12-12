@@ -23,6 +23,7 @@ with vertica_python.connect(**connection_info) as connection:
     );""") 
     print(cursor)
 
+
 def ex_vertica(ex):
     try:
         t = 0.1
@@ -35,10 +36,11 @@ def ex_vertica(ex):
             except vertica_python.errors.ConnectionError:
                 time.sleep(t)
                 if t < 10:
-                    t*=2
+                    t *= 2
         return False
     except Exception:
         return False
+
 
 def insert_vertica(ins, data):
     try:
@@ -52,7 +54,7 @@ def insert_vertica(ins, data):
             except vertica_python.errors.ConnectionError:
                 time.sleep(t)
                 if t < 10:
-                    t*=2
+                    t *= 2
         return False
     except Exception:
         return False
